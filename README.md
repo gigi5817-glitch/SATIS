@@ -1,0 +1,2 @@
+# SATIS
+SillyTavern UI Theme
