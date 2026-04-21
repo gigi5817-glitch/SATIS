@@ -1,0 +1,1260 @@
+
+《 𝐒𝐀𝐓𝐈𝐒 - Custom 》
+作者 睏暝@woolenbrave
+版本：v2.7
+此美化免費發布於旅程、尾巴鎮DC，請勿商用與二傳，二改請保留代碼作者標註。
+
+
+💠字體💠
+@import url(httpsfontsapi.zeoseven.com79mainresult.css);
+@import url(httpsfontsapi.zeoseven.com285mainresult.css);
+
+💠全局💠
+root {
+    文字
+    --mainfont Clear Han Serif; 正文字體
+    --secfont Noto Serif CJK;裝飾字體
+    --text-size 1em; 正文字體大小
+    --text-padding 10px; 正文與聊天框邊界的距離
+    --line-height 1.5em; 行高
+    --line-space 1.3em; 段距
+    --indent 2em; 首行縮排
+
+    主題元素顏色
+    --itemcolor var(--SmartThemeUnderlineColor);
+    --itemcolor-sec var(--SmartThemeEmColor);
+  
+    文案
+    --CotText 「 我的心是曠野之鳥。」;
+    --Homepage 我的心是曠野之鳥，a卻在你的眼中找到了藍天。;
+
+    左右欄背景顏色
+    --panel-color var(--SmartThemeChatTintColor);
+    --panel-color-phone var(--SmartThemeBlurTintColor);手機
+
+    --SmartThemeRadius 4px;全局圓角
+    --scrollbar 5px; 滾動條寬度
+    --chatborder 1px solid  var(--itemcolor20);聊天氣泡外框
+}
+
+💠頂欄&底欄💠
+root {
+    --TopBarIconColor var(--SmartThemeBodyColor);圖標顏色
+    --TopBarIconOpacity 0.25;透明度
+    --TopBarIconSize 18px;頂欄圖標大小
+    --BottomBarIconSize 20px;底欄圖標大小 
+    --TopbarColor var(--SmartThemeChatTintColor); 背景顏色
+    --IconPhone 30px;手機端頂欄圖標下移，改成0恢復原狀🥕
+}
+
+頂欄圖標替換(拿掉標註使用)
+#top-settings-holder .drawer-iconbefore {
+    content ;
+    background-image url('');
+}
+#top-settings-holder  .drawernth-child(even) .drawer-iconbefore {
+    content ;
+    background-image url('');
+}
+
+底欄圖標
+#options_buttonbefore {
+  content ;
+  background-image url('');
+}
+#extensionsMenuButtonbefore {
+    content ;
+    background-image url('');
+}
+#send_butbefore {
+  content ;
+  background-image url('');
+}
+
+🪲顏色
+root {
+    --itemcolor80 color-mix(in srgb, var(--itemcolor) 80%, transparent);
+    --itemcolor60 color-mix(in srgb, var(--itemcolor) 60%, transparent);
+    --itemcolor45 color-mix(in srgb, var(--itemcolor) 45%, transparent);
+    --itemcolor30 color-mix(in srgb, var(--itemcolor) 30%, transparent);
+    --itemcolor20 color-mix(in srgb, var(--itemcolor) 20%, transparent);
+    --itemcolor08 color-mix(in srgb, var(--itemcolor) 8%, var(--SmartThemeBlurTintColor) 100%);
+    --itemcolor-sec08 color-mix(in srgb, var(--itemcolor-sec) 08%, transparent);
+    --itemcolor-sec20 color-mix(in srgb, var(--itemcolor-sec) 20%, transparent);
+    --itemcolor-sec45 color-mix(in srgb, var(--itemcolor-sec) 45%, transparent);
+    --itemcolor-sec80 color-mix(in srgb, var(--itemcolor-sec) 60%, transparent);
+}
+
+🪲頭像 
+聊天框內的頭像
+.mes .avatar {
+    top -135px; 頭像高度位置😡
+    z-index 20; left 50%; position relative !important;
+}
+
+.mes .avatar img {
+    height 80px;頭像長
+    width 80px;寬
+    object-position center 50%; 頭像圖片位置
+    border 1px solid var(--SmartThemeBlurTintColor);
+    object-fit cover !important; transform translateX(-50%); z-index 10 !important; transition transform 0.6s ease-out, box-shadow 0.6s ease-out !important; position absolute;
+}
+
+body.square-avatars .avatar,
+body.square-avatars .avatar img {
+    border-radius var(--SmartThemeRadius) !important;
+}
+#chat .mes .avatar img {
+    top -10px;
+}
+.avatar img {
+    box-shadow 0 0 6px rgba(0,0,0,0.4); border 1px solid var(--itemcolor80);
+}
+
+.mesAvatarWrapper {
+    position static !important;
+    margin 0 auto;
+    display flex;
+    flex-direction column;
+    align-items center;
+    justify-content center;
+}
+
+.mes .avatarbefore {
+    transition transform 0.6s ease-out, box-shadow 0.6s ease-out;
+}
+
+.mes .avatarhoverbefore,
+.mes .avatarhover img,
+.mes .avatar imghover {
+    transform translateX(-50%) translateY(-8px) !important;
+    box-shadow 0 10px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+🪲正文與聊天氣泡
+對白樣式
+.mes_text q {
+  margin 0 6px 0 0px;
+  border-bottom 1px dotted color-mix(in srgb, var(--SmartThemeQuoteColor) 100%, transparent) !important;
+}
+
+ 聊天氣泡邊距 
+#chat { padding 8px 0px 8px var(--scrollbar);}
+
+ 手機端聊天框 隱藏滾動條+對齊 
+@media screen and (max-width 768px) {
+    #chat-webkit-scrollbar { display none !important;}
+    #chat { padding 8px 5px !important; }}
+
+.mes {
+  margin-top 4px;
+  flex-direction column;
+  align-items center;
+  border-radius var(--SmartThemeRadius) !important;
+  padding-top 200px !important; 😡
+  border var(--chatborder) !important;
+}
+
+.mes_block {
+  width 100%;
+  padding 0 0 55px 0;
+}
+
+.mes_text {
+  font-size var(--text-size);
+  font-family var(--mainfont);
+  text-align justify;
+  width 100% !important;
+  line-height var(--line-height);
+  letter-spacing 1px;
+  padding 25px var(--text-padding) 0px var(--text-padding) !important;
+  z-index 20 !important;
+  
+}
+
+.mes_text p {
+    margin-bottom var(--line-space) !important;
+    text-indent var(--indent);
+}
+
+.mes_text plast-child {
+    margin-bottom 0px !important;
+}
+
+引用塊
+.mes_text blockquote {
+  background transparent;
+  padding 20px 20px;    
+  border-radius 10px;
+  margin-bottom 20px;
+  border-left 3px double var(--itemcolor80);
+  border-right 3px double var(--itemcolor80);
+  box-shadow inset 0 0 10px var(--itemcolor30);
+  transition border 0.6s ease, box-shadow 0.6s ease-out;
+}
+
+.mes_text blockquotehover {
+  border-left 3px double var(--itemcolor);
+  border-right 3px double var(--itemcolor);
+  box-shadow inset 0 0 15px var(--itemcolor60) !important;
+}
+
+代碼包裹 by @Junezz 復古MacOs
+  code {
+    background-color transparent;
+    color var(--SmartThemeBodyColor) !important;
+    border 1px solid var(--itemcolor30);
+    box-shadow inset 0 0 5px var(--itemcolor30) !important;
+    font-size calc(var(--mainFontSize) 0.98);
+    padding 0px 3px;
+    line-height var(--line-height) !important;
+}
+對齊
+.last_mes .mesAvatarWrapper {
+  padding-bottom 0px;
+}
+.mes_block .ch_name {
+  min-height 0 !important;
+  height 0 !important;
+}
+選取文本樣式 by@potato_juice9
+.mes_text selection {
+    background var(--itemcolor) !important;
+    color var(--SmartThemeBlurTintColor);
+}
+
+🪲切換消息
+.swipeRightBlock {  
+  right 10px !important;
+  bottom 8px;
+}
+.swipe_left {
+  bottom 22px;
+}
+.swipe_left, .swipe_right {
+  font-size 15px;
+}
+
+🪲聊天氣泡頂部元素
+
+.mes_buttons, .mes_edit_buttons, .mes_ghost, .mes .name_text, .mesIDDisplay, .mes_timer,
+.tokenCounterDisplay,.icon-svg,.timestamp {
+  position absolute !important;
+  z-index 20  !important;
+}
+
+🍺角色名字
+.mes .name_text {
+  top 156px;😡
+  left 50%;
+  transform translateX(-50%);
+  font-size 16px;
+  font-family var(--secfont);
+  opacity 1;
+  color var(--SmartThemeBodyColor) !important;
+}
+.mes .name_textbefore {
+  content -;
+  margin-right 8px;
+  display inline-block;
+  transform scaleX(-1) translateY(-1.5px);
+  opacity 0.7;
+}
+.mes .name_textafter {
+  content -;
+  margin-left 8px;
+  display inline-block;
+  transform translateY(-1.5px);
+  opacity 0.7;
+}
+
+🍺日期
+.timestamp {
+    top 182px; 😡
+    font-size 11px;
+    letter-spacing 2px;
+    transform translateX(-50%);
+    left 50%;
+    opacity 1 !important;
+    transition opacity 0.6s ease, box-shadow 0.6s ease-out;
+    font-family var(--secfont);
+    color var(--SmartThemeBodyColor) !important;
+}
+
+.mes_ghosthover, .mes .name_texthover, .timestamphover {
+  text-shadow 0 0 16px var(--SmartThemeBodyColor) !important;
+}
+
+.mes_reasoning_actions,
+.mes_ghost,
+#chat .mes_buttons .mes_button,
+#chat .mes_edit_buttons .menu_button,
+#chat .favorite-toggle-icon {
+    color color-mix(in srgb, var(--SmartThemeBodyColor) 60%, transparent);
+    transition color 0.6s ease;
+    filter  none;
+}
+#chat .mes_buttons .mes_buttonhover,
+#chat .mes_edit_buttons .menu_buttonhover,
+#chat .mes_reasoning_actions .edit_buttonhover,
+#chat .favorite-toggle-iconhover {
+    color color-mix(in srgb, var(--SmartThemeBodyColor) 80%, transparent);
+}
+
+🍺小鉛筆
+.mes_buttons {
+  top 15px !important;
+  right 10px;
+  padding 5px;
+}
+
+.mes_editbefore { 
+  content f56b;
+  font-family Font Awesome 6 Free !important;
+  font-weight 900;
+}
+
+.extraMesButtonsHint {
+  padding-right 8px;
+}
+
+🍺正文edit按键
+.mes_edit_buttons {
+    top 12px;
+    padding 0;
+    filter none;
+    right 14px;
+}
+#chat .mes_edit_buttons .menu_button {
+    color color-mix(in srgb, var(--itemcolor) 60%, transparent);
+    box-shadow inset 0 0 5px var(--itemcolor45) !important;
+    transition opacity 0.6s ease;
+    filter  none;
+}
+
+🍺幽靈圖標
+.mes_ghost {
+    top 55px; 
+    right 16px;
+    transition opacity 0.6s ease;
+}
+
+🍺三元素
+.mes_timer, .mesIDDisplay, .tokenCounterDisplay {
+    padding 1px 10px 2px 10px;
+    opacity 1 !important;
+    transition border 0.6s ease, opacity 0.6s ease, transform 0.6s ease, box-shadow 0.6s ease-out;
+    font-family var(--secfont);
+    border 1px solid transparent;
+    color color-mix(in srgb, var(--SmartThemeBodyColor) 80%, transparent) !important;
+}
+.mes_timerhover, .tokenCounterDisplayhover, .mesIDDisplayhover {
+  opacity 1 !important;
+  border 1px solid var(--itemcolor80);
+  box-shadow inset 0 0 5px var(--itemcolor80) !important;
+  transform translateX(8px);
+}
+
+🍺訊息編號
+.mesIDDisplay {
+  top 15px;
+  font-size 17px !important;
+}
+🍺Token
+.tokenCounterDisplay { 
+  top 50px;
+  font-size 12px !important;
+}
+🍺計時
+.mes_timer {
+  top 78px ;
+  font-size 12px !important;
+}
+.mes_timer, .mesIDDisplay, .tokenCounterDisplay {
+    left 10px;
+}
+
+.mesIDDisplaybefore {
+  content Ch;
+  margin-right 5px;
+  font-size 15.5px !important;
+}
+.tokenCounterDisplaybefore {
+  content Tokens;
+  margin-right 5px;
+  font-size 9.5px !important;
+}
+.mes_timerbefore {
+  content Time;
+  margin-right 5px;
+  font-size 9.5px !important;
+}
+
+頂欄底欄圖標
+#top-settings-holder .drawer-iconbefore,
+#send_butbefore,
+#extensionsMenuButtonbefore,
+#options_buttonbefore {
+    display inline-block;
+    background-repeat no-repeat;
+    background-position center;
+    font-family Font Awesome 6 Free, Font Awesome 6 Brands !important;
+    font-weight 900;
+}
+ 頂欄圖標尺寸 
+#top-settings-holder .drawer-iconbefore {
+    background-size var(--TopBarIconSize);
+    width var(--TopBarIconSize);
+    height var(--TopBarIconSize);
+}
+ 底欄圖標尺寸 
+#send_butbefore,
+#extensionsMenuButtonbefore,
+#options_buttonbefore {
+    background-size var(--BottomBarIconSize);
+    width var(--BottomBarIconSize);
+    height var(--BottomBarIconSize);
+}
+頂欄底欄動畫
+is(#quick-reply-rocket-button, #options_button, #extensionsMenuButton, #send_but, #top-settings-holder .drawer-icon) {
+    transition opacity 0.2s ease-in-out, filter 0.2s ease-in-out !important;
+    &hover {
+        opacity calc(var(--TopBarIconOpacity) + 0.5) !important;
+}
+}
+
+🪲頂欄
+body.no-blur #top-bar, #top-bar {
+    background-color var(--TopbarColor) !important;
+    border-radius 0;
+}
+#top-bar .drawer-icon, 
+.drawer-toggle .drawer-icon {
+    font-size var(--TopBarIconSize) !important;
+    color var(--TopBarIconColor) !important; 
+    opacity var(--TopBarIconOpacity);
+}
+body.no-blur #top-bar {
+  padding-bottom 0px !important;
+}
+
+🪲底欄
+body.no-blur #send_form, #send_form {
+    background-color var(--TopbarColor) !important;
+    border none !important;
+    outline none !important;
+    border-radius 0 !important;
+    border-top var(--TopbarBorder) !important;
+    padding 1px 8px 2px 8px;
+}
+#rightSendFormdiv, #leftSendFormdiv {
+    font-size var(--BottomBarIconSize) !important;
+    color var(--TopBarIconColor) !important;
+    opacity var(--TopBarIconOpacity) !important;
+}
+#send_textareaplaceholder {
+  color transparent;
+  opacity 0;
+}
+
+消除底欄縫隙 by@_nak.a.ri
+#form_sheld {
+  margin 0 auto !important;
+}
+修正版by咩野
+bodynot(.waifuMode) #sheld {
+  top var(--bottomFormBlockSize);
+  height calc(100dvh - var(--bottomFormBlockSize));
+  min-height calc(100dvh - var(--bottomFormBlockSize));
+}
+
+🪲左右欄
+#right-nav-panel, #left-nav-panel {
+    background-color var(--panel-color) !important;
+    border none;
+}
+#left-nav-panel { box-shadow 1px 0px 0 var(--panel-color) !important; }
+#right-nav-panel { box-shadow -1px 0px 0 var(--panel-color) !important; }
+
+ 手機端左右欄背景顏色 
+@media screen and (max-width 768px) {
+  #left-nav-panel, #right-nav-panel { background-color var(--panel-color-phone) !important; }
+}
+ PC端左右欄佔滿全屏 
+@media screen and (min-width 1025px) and (pointer fine) {
+  #left-nav-panel, #right-nav-panel { top 0 !important; height 100vh !important; max-height 100vh !important; }
+}
+🪲右欄角色管理
+.bogus_folder_selecthover, .character_selecthover {
+    background-color transparent !important; 
+    box-shadow inset 0 0 8px var(--itemcolor);
+    border-radius var(--SmartThemeRadius);
+}
+.bogus_folder_select, .character_select {padding 8px;}
+
+#rm_button_characters, #rm_button_panel_pin_div, #lm_button_panel_pin_div, #WI_button_panel_pin_div {
+    font-size 1.15em !important;
+    opacity  1;
+    padding-bottom 5px;
+}
+
+角色收藏
+.hotswap.avatars_inline { display flex; flex-wrap wrap; transition all 1s ease; scrollbar-width none; }
+.hotswap.avatars_inline-webkit-scrollbar { display none; }
+.hotswap.avatars_inlinehover { max-height 300px; overflow auto; }
+
+收藏角色頭像框 by @rech0_viixi 雙色盒子
+.character_select.is_fav .avatar {
+  outline 4px double var(--itemcolor);
+}
+.character_select.is_fav .ch_name {
+  color var(--itemcolor);
+}
+
+使用者角色選中頭像 by @mayonnaise58
+.avatar-container.interactable.selected {
+    background-color var(--itemcolor-08); 
+    box-shadow inset 0 0 8px var(--itemcolor80);
+    border-radius var(--SmartThemeRadius) !important;
+    border none;
+}
+.avatar-container.interactablehover {
+    border-radius calc(var(--SmartThemeRadius) + 2px);
+    background-color transparent !important;
+    box-shadow inset 0 0 8px var(--itemcolor80);
+}
+角色管理按鈕
+#charListFixedTop .rm_tag_filter .tag {
+    background transparent !important;
+    color var(--itemcolor-sec);
+    filter none;
+    border 0;
+    box-shadow inset 0 0 8px var(--itemcolor-sec80) !important;
+}
+
+擴充功能關閉條目
+.extensions_info .extension_disabled {
+  color var(--SmartThemeBodyColor) !important;
+}
+
+🪲思維鏈
+.mes_reasoning_details {
+    margin-left var(--text-padding);
+    margin-right var(--text-padding);
+    position relative !important;
+}
+思維鏈內容主體
+.mes_reasoning {
+    max-height 480px; 思維鏈內容開啟高度
+    overflow-y auto;
+    overflow-x hidden;
+    color var(--SmartThemeBodyColor) !important;
+    margin-bottom 18px;
+    box-shadow inset 0 0 10px var(--itemcolor20);
+    border 1px dotted var(--itemcolor20);
+    background linear-gradient(
+        to bottom,
+        var(--itemcolor08) 0%,
+        transparent 100%) !important;
+    margin-top 30px;
+}
+隱藏原始箭頭
+.mes_reasoning_details .mes_reasoning_arrow {
+    display none !important;
+}
+.mes_reasoning_header_block {
+    margin 0;
+}
+思維鏈編輯框
+.reasoning_edit_textarea { 
+  margin-top 50px; margin-bottom 15px; 
+}
+.mes_reasoning_actions.flex-container {
+    position absolute !important;
+    top 50px !important;
+    right 0; 
+    z-index 30;
+}
+.mes_reasoning_edit_done,
+.mes_reasoning_edit_cancel,
+.mes_reasoning_delete {
+    margin-top -55px !important;
+    filter none !important;
+}
+
+.mes_reasoning_header {
+    font-size 0 !important;
+    text-align center;
+    display block;
+    background transparent;
+    justify-content center !important;
+    width 100% !important;
+    left -10px;
+    height 40px;
+    margin 15px 0 0 0; 
+}
+🥝思維鏈文案
+.mes_reasoning_headerafter {
+    content var(--CotText);
+    display inline-block;
+    font-size 16px;
+    letter-spacing 3px;
+    opacity 0.8;
+    color var(--itemcolor);
+    font-family var(--secfont);
+    font-weight bold;
+}
+🥝思維鏈動畫
+.last_mes .mes_reasoning_headerafter {
+      animation dreamFloat 8s cubic-bezier(0.42, 0, 0.58, 1) infinite;
+      will-change transform, opacity, filter;
+}
+@keyframes dreamFloat {
+    0% {
+        transform scale(1.01);
+        opacity 0.5;
+        filter blur(0.8px);
+    }
+    50% {
+        transform scale(0.88);
+        opacity 0.9;
+        filter blur(0px);
+        text-shadow 0 0 15px rgba(var(--itemcolor-rgb), 0.4);
+    }
+    100% {
+        transform scale(1.01);
+        opacity 0.5;
+        filter blur(0.8px); }
+}
+.mes_reasoning_headerhoverafter {
+    opacity 1 !important;
+    filter blur(0) !important;
+    text-shadow 0 0 5px var(--itemcolor);
+}
+
+🪲圓角
+.drawer-content, 
+.popup, 
+.mes_block, 
+.text_pole, 
+textarea, 
+select,
+.inline-drawer-toggle,
+.menu_button,
+.bg_tab_panel,
+input[type='checkbox'] {
+    border-radius var(--SmartThemeRadius) !important;
+}
+
+🪲去除陰影
+body .ui-widget-content,
+body, #sheld,
+.drawer-content, 
+.popup, 
+#send_form, 
+.mes_block, 
+.menu_button, 
+.text_pole, 
+#top-bar, 
+.inline-drawer-toggle,
+input[type='checkbox'] {
+    box-shadow none !important;
+}
+
+ 🪲標題去陰影 
+#aistudio_proxy_button,
+#extensions_settings .inline-drawer-toggle.inline-drawer-header, #extensions_settings2 .inline-drawer-toggle.inline-drawer-header, #user-settings-block h4, .standoutHeader
+ {
+    background-image none;
+    border-radius var(--SmartThemeRadius) !important;
+    padding 4px 5px 4px 11px;
+    margin-bottom 5px;
+    border 1px solid var(--itemcolor20);
+    background-color var(--itemcolor08);
+    transition box-shadow 0.2s ease, border 0.2s ease;
+}
+🪲擴充頁面標題
+#aistudio_proxy_button,
+#extensions_settings .inline-drawer-toggle.inline-drawer-header, 
+#extensions_settings2 .inline-drawer-toggle.inline-drawer-header {
+  padding 6px 11px !important;
+}
+.standoutHeaderhover,
+#aistudio_proxy_buttonhover,
+#extensions_settings .inline-drawer-toggle.inline-drawer-headerhover, 
+#extensions_settings2 .inline-drawer-toggle.inline-drawer-headerhover {
+  box-shadow inset 0 0 8px var(--itemcolor20) !important;
+  border 1px solid var(--itemcolor60) !important;
+  filter none !important;
+}
+
+
+🪲標題 by @rech0_viixi 雙色盒子
+.standoutHeader strong,
+#right-nav-panel h2,
+.drawer-content  h3,
+.drawer-content
+  .flex-container
+  h3first-of-typenot(#Backgrounds .textAlignCenter),
+.drawer-content .flex-container .flex-container h3first-of-type,
+.popup h3not(dialog ) {
+  font-size calc(var(--mainFontSize)  1.1);
+  letter-spacing 0.1em;
+  white-space nowrap;
+  line-height 2;
+  position relative;
+  padding-left 21px;
+  color var(--SmartThemeBodyColor);
+  font-family Font Awesome 6 Free !important;
+}
+#bg-header-fixed { 
+  color var(--itemcolor80); 
+}
+
+標題裝飾
+.standoutHeader strongbefore,
+#right-nav-panel h2before,
+.drawer-content  h3before,
+.drawer-content
+  .flex-container
+  h3first-of-typenot(#Backgrounds .textAlignCenter)before,
+.drawer-content .flex-container .flex-container h3first-of-typebefore,
+.popup h3not(dialog )before {
+    content 'f1ce';
+    position absolute;
+    left 0px;
+    top calc(50%);
+    transform translateY(-50%);
+    opacity 0.9;
+    font-size 14px;
+    color var(--itemcolor);
+}
+修正标题没对齐的问题
+.drawer-content .alignItemsBaseline {
+  align-items center !important;
+}
+
+🪲抽屜
+.drawer-content {
+    border-radius 0px !important;
+    padding 12px 12px 5px 12px;
+}
+
+ by @_nak.a.ri 
+.drawer-content.openDrawer, #left-nav-panel, #right-nav-panel, #WorldInfo, #character_popup {
+  top var(--bottomFormBlockSize);
+  max-height calc(100dvh - var(--bottomFormBlockSize));
+  height calc(100dvh - var(--bottomFormBlockSize));
+}
+
+#rm_print_characters_block {
+  padding-bottom 0px; 
+}
+
+#rm_extensions_block,
+#user-settings-block {
+  padding-bottom 30px !important;
+}
+
+#bg_tabs .bg_tab_panel {
+  padding 5px 0 20px var(--scrollbar);
+}
+
+🪲抽屜彈窗
+.popup {
+    box-shadow transparent !important;
+    padding 1px !important;
+}
+@media (max-width 768px) { 
+    .popup {
+        width 95% !important;
+        max-width 95% !important;
+        margin-left auto !important;
+        margin-right auto !important;}
+}
+ 彈窗按鈕樣式 
+.popup .popup-controls .menu_button {
+    border 1px solid var(--itemcolor30) !important;
+    box-shadow inset 0 0 5px var(--itemcolor30) !important;
+    padding 4px 30px !important;
+    font-size 13px !important;
+    margin-top 0 !important;
+    color var(--SmartThemebodyColor);
+    font-weight bold;
+}
+
+圓圓圖標
+.fa-circle-info, 
+.fa-circle-exclamation,
+.notes-link .note-link-span,
+.note-link-span.fa-circle-question,
+#left-nav-panel .note-link-span {
+    display none !important;
+}
+
+ 🪲輸入框 
+.range-block-counter input, textarea, .text_pole {
+    background-color transparent !important;
+    border 1px solid var(--itemcolor-sec20);
+    transition box-shadow 0.3s ease-out, border 0.3s ease-out;
+    border-radius var(--SmartThemeRadius);
+    padding 3px 10px !important;
+}
+.range-block-counter inputhover, .text_polehover, .range-block-counter inputfocus, .text_polehover, .text_polefocus, textareafocus, textareahover {
+    box-shadow inset 0 0 10px var(--itemcolor20) !important;
+    border 1px solid var(--itemcolor45);
+}
+textareanot(#settingsSearch) {
+    padding 6px 4px 6px 8px !important;
+}
+#settingsSearch {
+    margin-bottom 8px;
+}
+#send_textarea {
+    padding 6px 4px 6px 8px !important;
+    border-radius var(--SmartThemeRadius);
+}
+正則與使用者角色輸入框高度
+#regex_editor_template .regex_replace_string,
+#persona_description.text_pole.textarea_compact {
+   min-height 280px !important;
+}
+
+🪲下拉框按鈕
+select {
+    background-color transparent !important;
+    border 1px solid var(--itemcolor20) !important;
+    border-radius var(--SmartThemeRadius);
+    margin-bottom 5px !important;
+    padding 3px 10px !important;
+}
+selecthover {
+    box-shadow inset 0 0 10px var(--itemcolor20);
+}
+
+下拉按鈕圖標
+.custom-drawer-icon, .inline-drawer-icon {
+    font-size calc(15px  0.98);
+    filter none;
+    color var(--itemcolor);
+    opacity 0.8;
+}
+
+滑動條 by @_nak.a.ri
+input[type=range], input[type=range]disabled {
+  filter none;
+  box-shadow none !important;
+  background-color var(--itemcolor-sec45) !important;
+  height 4px !important;
+  border-radius 5px !important;
+}
+input[type=range]-webkit-slider-thumb {
+  border none;
+  cursor pointer;
+  background-color var(--itemcolor-sec);
+  box-shadow none;
+  width 10px;
+  height 10px;
+}
+滑動條背景
+.neo-range-input {
+    background-color transparent;
+}
+
+🪲一般按鈕樣式
+.menu_button, 
+.right_menu_button, 
+.mes_button {
+    filter none !important;
+    background-color transparent !important;
+    border-color transparent !important;
+    color var(--itemcolor80);
+    font-size 15px !important;
+    transition background-color 0.2s ease, opacity 0.2s ease !important;
+    opacity 1 !important;
+}
+.red_buttonhover,
+.redWarningBGhover {
+    background-color var(--itemcolor-sec20) !important;
+}
+按鈕懸停動畫
+.menu_buttonhover, 
+.right_menu_buttonhover, 
+.mes_buttonhover {
+    transition opacity 0.3s ease !important;
+    color var(--itemcolor);
+}
+#reload_chat {
+    border 1px solid var(--itemcolor20) !important;
+    background var(--itemcolor08) !important;
+    opacity 1;
+    backdrop-filter transparent !important;
+}
+#reload_chathover {
+    box-shadow inset 0 0 8px var(--itemcolor20) !important;
+}
+
+🪲通用選項 by@blue_0310.
+option {
+  padding 03px;
+  margin 2px 0;
+}
+选择前
+optionnot(checked) {
+  background-color var(--SmartThemeBlurTintColor) !important;
+  color var(--SmartThemeBodyColor) !important;
+}
+选择后
+optionchecked {
+  color var(--SmartThemeBlurTintColor);
+  font-weight bold;
+  background-color var(--itemcolor80);
+}
+optioncheckedafter {
+  content ✔;
+  margin-left 4px;
+}
+
+🪲 checkbox by 秦素@qinsu0160_77704
+.checkbox_label {
+  padding 8px 10px;
+  display flex !important;
+  align-items center !important;
+  justify-content flex-start !important;
+}
+input[type=checkbox]before {
+  box-shadow inset 1em 1em var(--itemcolor);
+  font-size 18px;
+}
+input[type='checkbox'] {
+    background transparent !important;
+    box-shadow inset 0 0 5px var(--itemcolor80) !important;
+    border-color transparent !important;
+    outline none;
+    border-radius 2px !important;
+    top 2.5px;
+    filter none;
+}
+input[type=checkbox]checked {
+    box-shadow none !important;
+}
+input[type=checkbox]focus,
+input[type=checkbox]active,
+input[type=checkbox]hover {
+  outline none !important;
+  box-shadow inset 0 0 5px var(--itemcolor) !important;
+}
+
+🪲世界書
+.wi-card-entry {
+  border 1px solid transparent;
+  border-radius var(--SmartThemeRadius) !important;
+  margin 10px 0;
+  padding 13px 10px 11px 10px !important;
+}
+世界書開啟條目
+.wi-card-entryhas(.killSwitch.fa-toggle-on) {
+  border 1px solid var(--itemcolor45);
+  background-color var(--itemcolor08);
+}
+世界書關閉條目透明度
+.wi-card-entryhas(.killSwitch.fa-toggle-off),
+.world_entryhas(.fa-toggle-off) {
+    opacity 0.9 !important;
+    border-radius 0;
+}
+@media screen and (min-width 1025px) and (pointer fine) {
+.wi-card-entryhover {
+  box-shadow inset 0 0 8px var(--itemcolor30);
+  border 1px solid var(--itemcolor80) !important;}}
+
+條目文字背景
+.world_entry textareanot([name=comment]),
+.world_entry input,
+.world_entry select,
+.world_entry .text_pole {
+    border-radius 0 !important;
+    background-color var(--SmartThemeRadius) !important;
+    border 1px solid var(--itemcolor20) !important;
+    border-radius var(--SmartThemeRadius) !important;
+}
+
+世界書搜尋框
+.select2-container .select2-selection--single {
+    background-color var(--SmartThemeBlurTintColor);
+}
+
+.world_entry .text_pole[name='comment'] {
+  min-width 150px !important;
+}
+
+全局世界書
+.standoutHeader~.inline-drawer-content { background-color transparent; }
+.select2-container .select2-selection--multiple, .select2-container .select2-selection--single { background-color transparent; }
+.select2_choice_clickable_buttonstyle+span.select2-container .select2-selection__choice__display {
+    color var(--SmartThemeBodyColor);
+    background-color transparent;
+}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{
+    background-color var(--itemcolor-sec08);
+    border 1px solid var(--itemcolor-sec45);
+    padding 3px 0 3px 15px;
+}
+span.select2.select2-container .select2-selection__choice__remove {
+    background-color transparent;
+    padding 5px 5px 5px 8px;
+}
+
+🪲預設
+#completion_prompt_manager_list {
+    background-color transparent !important; 
+    border none;
+    box-shadow none !important;
+}
+
+預設條目樣式
+#completion_prompt_manager #completion_prompt_manager_list li.completion_prompt_manager_prompt {
+    padding 8px;
+    margin-bottom 8px;
+}
+#completion_prompt_manager_list li [class=fa-] {
+    color var(--itemcolor) !important;
+}
+#completion_prompt_manager_list li  spannth-child(3) span {
+    color var(--itemcolor) !important;
+    opacity 0.8 !important;
+    transition opacity 0.2s ease;
+}
+#completion_prompt_manager_list li  spannth-child(3) spanhover {
+    opacity 1 !important;
+}
+
+預設開啟條目
+.completion_prompt_manager_promptnot(.completion_prompt_manager_prompt_disabled) {
+    background-color var(--itemcolor08);
+    border 1px solid var(--itemcolor60) !important;
+}
+預設關閉條目
+.completion_prompt_manager_prompt_disabled,
+.completion_prompt_manager_prompt_disabled .completion_prompt_manager_prompt_name,
+.completion_prompt_manager_prompt_disabled .prompt-manager-inspect-action {
+    color var(--SmartThemeBodyColor) !important;
+    border 1px solid transparent !important;
+    box-shadow none;
+}
+@media (hover hover) and (pointer fine) {
+.completion_prompt_manager_prompthover {
+    border 1px solid var(--itemcolor) !important; box-shadow inset 0 0 8px var(--itemcolor20);}
+}
+
+#completion_prompt_manager .completion_prompt_manager_header {
+  color var(--SmartThemeBodyColor);
+}
+
+預設小字隱藏
+#completion_prompt_manager_popup_edit  h3,
+.text_muted ,
+#openai_settings .inline-drawer-header small, 
+.toggle-description {
+    display none !important;
+}
+預設條目編輯版面
+.completion_prompt_manager_popup_entry_form_control {
+   margin-top 3px; 
+}
+#completion_prompt_manager_popup {
+   padding 0;
+}
+#completion_prompt_manager_popup .completion_prompt_manager_popup_entry .completion_prompt_manager_popup_entry_form_footer {
+    margin-top 2px !important;
+}
+#completion_prompt_manager_popup .completion_prompt_manager_popup_entry .completion_prompt_manager_popup_entry_form_footer .menu_button {
+    border 1px solid var(--itemcolor30) !important;
+    box-shadow inset 0 0 5px var(--itemcolor30) !important;
+    padding 9px 11px !important;
+}
+
+預設頂部通知
+.editable-slider-notification { font-size 0; }
+
+預設小標題 by @mdma_v10d
+#completion_prompt_manager .completion_prompt_manager_header_advanced span { filter none; }
+
+預設圖標陰影 by 易碎蝶@fangyan0541
+#completion_prompt_manager .completion_prompt_manager_header_advanced span, #completion_prompt_manager #completion_prompt_manager_list li.completion_prompt_manager_prompt span span span {
+    filter none;
+}
+
+🪲滾動條
+-webkit-scrollbar {
+    width var(--scrollbar) !important;
+}
+-webkit-scrollbar-track {
+    background transparent !important;
+}
+-webkit-scrollbar-thumb {
+    background var(--itemcolor20) !important;
+    border 0 !important;
+    box-shadow none !important;
+}
+-webkit-scrollbar-thumbhover {
+    background var(--itemcolor-sec80) !important;
+}
+#sheld-webkit-scrollbar { display none; }
+
+🪲extensionTopBar
+#extensionTopBar, #extensionConnectionProfiles {
+  border-radius 0 !important;
+  border none !important;
+  background-color var(--TopbarColor) !important;
+}
+#extensionTopBar .right_menu_button {
+  opacity var(--TopBarIconOpacity) !important;
+  color var(--TopBarIconColor) !important;
+}
+#extensionTopBarChatName, #extensionTopBarSearchInput {
+  border none !important;
+  box-shadow none !important;
+  background none !important;
+  color var(--TopBarIconColor) !important;
+}
+#extensionConnectionProfiles {
+  margin-top 0px !important;
+}
+
+🪲输入框拖曳按鈕加大 by @_nak.a.ri
+@media screen and (max-width 768px) {
+  textarea-webkit-scrollbar {
+    display initial;
+    width 10px !important; }
+  textarea-webkit-scrollbar-thumb { display none; }}
+
+🪲首頁 by @yaokoulizi
+div.mes[mesid=0][ch_name=Assistant][type=assistant_message] .mes_text   {
+    visibility hidden !important; height 0 !important; margin 0 !important;
+}
+div.mes[mesid=0][ch_name=Assistant][type=assistant_message] .mes_textbefore {
+    content var(--Homepage);
+    opacity 0.4;
+    letter-spacing 4px;
+    line-height 1.8em;
+    display block; text-align center; white-space pre-line;
+}
+.welcomePanel .welcomeHeaderVersionDisplay {
+    font-size 14px; opacity 0.8;
+}
+.welcomePanel .welcomeHeaderLogo {
+    width 16px; height 16px;
+}
+#chat  div.mes.smallSysMes.last_mes.fade {
+    border none !important;
+}
+.smallSysMes .mes_blockbefore {
+    background-image none !important;
+}
+.welcomeRecent .chatMessageContainer {
+  opacity 0.6;
+}
+
+🪲Toast通知 by hy@captivating_fox_43571
+#toast-container  .toast {
+    border-radius var(--SmartThemeRadius);
+    box-shadow none !important;
+}
+#toast-container  .toast-success {
+    background-color var(--itemcolor-sec) !important;
+}
+
+🪲Reverse proxy warning by @rh.nu
+Reverse proxy warning
+#ReverseProxyWarningMessage,
+#ReverseProxyWarningMessage2,
+
+CC invalid settings notice
+#advanced-formatting-cc-notice,
+
+Deprecated extra api settings
+#extensions_settings2 + hr,
+#extensions_settings2 + hr + div,
+#extensions_settings2 + hr + div + div {
+  display none !important;
+}
+
+🪲載入畫面
+#loader, 
+#preloader-logo {
+    display none !important;
+    opacity 0 !important;
+    visibility hidden !important;
+}
+#preloader {
+    display flex !important;
+    align-items center !important;
+    justify-content center !important;
+    opacity 1 !important;
+    visibility visible !important;
+    background transparent !important;
+    backdrop-filter none !important;
+}
+加載圖標裝飾🍋‍🟩
+#preloaderafter {
+    content f1ce;
+    font-family Font Awesome 6 Free !important;
+  font-weight 900;
+    font-size 23px;
+    color var(--itemcolor);
+}
+
+🪲手機端輸入框換行改自@_nak.a.ri
+@media (max-width 768px) {
+#send_formhas(#send_textareafocus, #send_textareanot(placeholder-shown)) {
+        #nonQRFormItems {
+            display grid !important;
+            grid-template auto auto  auto 1fr auto !important;
+            align-items center !important;
+        }
+        #send_textarea { grid-area 2  1  3  4 !important; width 100% !important; }
+        #leftSendForm  { grid-area 1  1 !important; }
+        #rightSendForm { grid-area 1  3 !important; justify-self end !important; }
+        padding-bottom 23px !important;
+        &has(#send_textareafocus) { padding-bottom 8px !important; }}
+}
+
+🪲手機端圖標位移🥕
+@media (max-width 768px) {
+    頂欄
+    body.no-blur #top-bar, #top-bar {
+        height calc(var(--topBarBlockSize) + var(--IconPhone)) !important; 
+        display flex; align-items center;}
+     頂欄圖標下移 
+    #top-bar .drawer-icon, .drawer-toggle .drawer-icon {
+        padding-top calc(var(--IconPhone) + var(--IconPhone)) !important;
+    }
+     預設圖標右移 
+    #ai-config-button { margin-left 9px !important;}
+     角色管理圖標左移 
+    #rightNavHolder { margin-right 9px !important; }
+    底欄
+    body.no-blur #send_form, #send_form {
+        padding 3px 12px 23px 12px !important;}
+    聊天消息
+    #chat { margin-top calc(var(--IconPhone) + 0.5px);}
+    抽屜
+    .drawer-content.openDrawer, #right-nav-panel.drawer-content.openDrawer, #left-nav-panel.drawer-content.openDrawer {
+        top calc(var(--bottomFormBlockSize) + var(--IconPhone)) !important; }
+    #completion_prompt_manager_popup { padding-bottom 35px;}
+}
+
+ 🪲IOS手機端適配 by @rech0_viixi 雙色盒子
+@supports (-webkit-touch-callout none) {
+  .drawer-contentnot(#left-nav-panel)not(#right-nav-panel) {
+    max-width 100dvw;
+    top 11px !important;
+  }
+  #world_popup { margin-top 0; width 100%; }
+  #world_popup-webkit-scrollbar { display none; }
+}
+
+ 🪲手機端世界書佈局 柏柏@baibai_ds 
+@media screen and (max-width 768px) {
+    .fa-circle-chevron-down.interactable.fa-fw.fa-solid, .fa-circle-chevron-up.interactable.fa-fw.fa-solid { position absolute; right 6.5px; top 117px; border none; height 26px; width 26px; &before { width 26px; height 26px; }} .world_entry_form { padding 10px 15px 13px 15px !important; position relative; } .killSwitch { position absolute; right 13px; top 70px; height 14px; width 15px; z-index 999; } .world_entry .drag-handle { position absolute; right 14px; top 17px; } .flex-container.alignitemscenter.wide100p { margin-right 25px; } .move_entry_button, .duplicate_entry_button, .delete_entry_button { position absolute; top 116px; height 25px; width 25px; padding 0; margin 0; } .move_entry_button { left 125px; } .duplicate_entry_button { left 160px; } .delete_entry_button { left 195px; } .text_pole { font-size 13px; height 25px; } .text_pole[name='comment'] { font-size 14px; padding 6px 8px; height 28px; line-height 14px; } .WIEntryTitleAndStatus.flex-container.flex1.alignitemscenter { min-height 35px; } .WIEnteryHeaderControls.flex-container { min-height 87px; &has(.world_entry_form_control[name='PositionBlock']) { width 100%;}} input[name='depth'], input[name='order'], input[name='probability'] { width 45px !important; min-width 45px !important; max-width 45px !important; height 25px !important; min-height 25px !important; max-height 25px !important; border-width 1px; } label[data-i18n='Order'], label[data-i18n='Depth'], label[data-i18n='Position'], label[data-i18n='Trigger %'], small[data-i18n='Primary Keywords'], small[data-i18n='Optional Filter'], small[data-i18n='Logic'], small[data-i18n='Scan Depth'], small[data-i18n='Case-Sensitive'], span[data-i18n='Content'] { font-size 11px; margin-top 1px; margin-left 5px; text-align start; line-height 13px; color var(--SmartThemeBodyColor); } .world_entry_form_control[name='PositionBlock'] { width calc(100% - 50px); min-width calc(100% - 50px); max-width calc(100% - 50px); } select[name='entryStateSelector'] { width 45px !important; min-width 45px !important; max-width 45px !important; height 28px !important; } select[name='position'] { margin-bottom 5px; padding-left 8px; } .world_entry_edit { display block; margin-top 10px;  not(first-child) { display none; } .flex-container[name='keywordsAndLogicBlock'], .flex-container[name='perEntryOverridesBlock'] { display contents; } .world_entry_thin_controls[name='contentAndCharFilterBlock'] { &, .world_entry_form_control, .world_entry_form_control  first-child, .world_entry_form_control  first-child  first-child, .world_entry_form_control  first-child  first-child  first-child { display contents; } .world_entry_form_control  first-child  first-child { span.flex-container { order 0; color var(--SmartThemeBodyColor); font-size 11px;}  first-child div.flex-container { order 1; margin-bottom 5px;}}}} .world_entry_form_control { &has(small[data-i18n='Whole Words'], small[data-i18n='Group Scoring'], small[data-i18n='Automation ID']) { display none; } &has(small[data-i18n='Logic']) { order 10; } &has(.text_pole[name='key'], .text_pole[name='keysecondary']) { width 100%; flex none !important; } .text_pole[name='key'], .text_pole[name='keysecondary'] { padding 3px 0; font-size 13px; line-height 18px; height 26px; min-height 26px; margin-bottom 10px;} .text_pole[name='content'] { padding 3px 0; font-size 14px; line-height 20px; min-height 200px !important;}} .world_entry_edit { .world_entry_form_control.keysecondary { order 9; } .world_entry_form_controlhas(input[name='scanDepth']) { order 10; } .world_entry_form_controlhas(select[name='caseSensitive']) { order 10; }}}
